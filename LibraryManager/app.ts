@@ -1,4 +1,8 @@
-function getAllBooks() {
+import {Category} from './enum';
+import {Book, DamageLogger, Author, Librarian } from './interfaces';
+import {UniversityLibrarian} from './classes';
+
+function getAllBooks(): Book[] {
 
     let books = [
         {id:1,title:'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction},
@@ -27,7 +31,7 @@ function logFirstAvailabe(books = getAllBooks()): void {
     console.log('First Available: '+firstAvailabe)
 }
 
-enum Category { Biography, Poetry, Fiction, History, Children }
+
 
 function getBookTitlesByCategory(categoryFilter: Category = Category.Fiction): Array<string> {
     
@@ -52,7 +56,7 @@ function logBookTitles(titles: string[]): void {
     }
 }
 
-function getBookById(id: number) {
+function getBookById(id: number): Book {
     const allBooks = getAllBooks();
     return allBooks.filter(book => book.id === id)[0];
 }
@@ -112,28 +116,29 @@ function getTitles(bookProperty: any): string[] {
     return foundTitles;
 }
 
+function printBook(book: Book): void {
+    console.log(book.title + ' by ' +book.author);
+}
+
 // **********************************************************
 
-// let hermanBooks = getTitles('Herman Melville');
-// hermanBooks.forEach(title => console.log(title));
+// let myBook: Book = {
+//     id: 5,
+//     title: 'Pride and Prejudice',
+//     author: 'Jane Auston',
+//     available: true,
+//     category: Category.Fiction,
+//     pages: 250,
+//     markDamaged: (reason: string) => console.log('Damaged: '+reason)
+// }
 
-let checkedOutBooks = getTitles(false);
-checkedOutBooks.forEach(title => console.log(title));
+// printBook(myBook);
+// myBook.markDamaged('missing back cover');
 
-// let myBooks: string[] = checkOutBooks('Throne', 1, 2, 3);
-// myBooks.forEach(title => console.log(title));
+// let logDamage: DamageLogger;
+// logDamage = (damage: string) => console.log('Damage reported: '+damage);
+// logDamage('coffie stains');
 
-// logFirstAvailabe();
-
-// let fictionBooks = getBookTitlesByCategory();
-// fictionBooks.forEach(title => console.log(title));
-
-// createCustomer('Michelle')
-// createCustomer('Leigh', 6)
-// createCustomer('Marie', 12, 'Atlanta')
-
-// let myID: string = createCustomerID('daniel', 10);
-// console.log(myID);
-
-// const fictionBooks = getBookTitlesByCategory(Category.Fiction);
-// fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' +val));
+let favoriteLibrarian: Librarian = new UniversityLibrarian();
+favoriteLibrarian.name = 'Sharon';
+favoriteLibrarian.assistCustomer('Lynda');

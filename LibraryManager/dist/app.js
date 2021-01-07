@@ -1,10 +1,13 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var enum_1 = require("./enum");
+var classes_1 = require("./classes");
 function getAllBooks() {
     var books = [
-        { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: Category.Fiction },
-        { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: Category.Fiction },
-        { id: 3, title: 'I know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: Category.Poetry },
-        { id: 4, title: 'Moby Dick', author: 'Herman Melville', available: true, category: Category.Fiction }
+        { id: 1, title: 'Ulysses', author: 'James Joyce', available: true, category: enum_1.Category.Fiction },
+        { id: 2, title: 'A Farewell to Arms', author: 'Ernest Hemingway', available: false, category: enum_1.Category.Fiction },
+        { id: 3, title: 'I know Why the Caged Bird Sings', author: 'Maya Angelou', available: true, category: enum_1.Category.Poetry },
+        { id: 4, title: 'Moby Dick', author: 'Herman Melville', available: true, category: enum_1.Category.Fiction }
     ];
     return books;
 }
@@ -22,17 +25,9 @@ function logFirstAvailabe(books) {
     console.log('Total Books: ' + numberOfBooks);
     console.log('First Available: ' + firstAvailabe);
 }
-var Category;
-(function (Category) {
-    Category[Category["Biography"] = 0] = "Biography";
-    Category[Category["Poetry"] = 1] = "Poetry";
-    Category[Category["Fiction"] = 2] = "Fiction";
-    Category[Category["History"] = 3] = "History";
-    Category[Category["Children"] = 4] = "Children";
-})(Category || (Category = {}));
 function getBookTitlesByCategory(categoryFilter) {
-    if (categoryFilter === void 0) { categoryFilter = Category.Fiction; }
-    console.log('Getting books in category: ' + Category[categoryFilter]);
+    if (categoryFilter === void 0) { categoryFilter = enum_1.Category.Fiction; }
+    console.log('Getting books in category: ' + enum_1.Category[categoryFilter]);
     var allBooks = getAllBooks();
     var filteredTitles = [];
     for (var _i = 0, allBooks_1 = allBooks; _i < allBooks_1.length; _i++) {
@@ -104,20 +99,24 @@ function getTitles(bookProperty) {
     }
     return foundTitles;
 }
+function printBook(book) {
+    console.log(book.title + ' by ' + book.author);
+}
 // **********************************************************
-// let hermanBooks = getTitles('Herman Melville');
-// hermanBooks.forEach(title => console.log(title));
-var checkedOutBooks = getTitles(false);
-checkedOutBooks.forEach(function (title) { return console.log(title); });
-// let myBooks: string[] = checkOutBooks('Throne', 1, 2, 3);
-// myBooks.forEach(title => console.log(title));
-// logFirstAvailabe();
-// let fictionBooks = getBookTitlesByCategory();
-// fictionBooks.forEach(title => console.log(title));
-// createCustomer('Michelle')
-// createCustomer('Leigh', 6)
-// createCustomer('Marie', 12, 'Atlanta')
-// let myID: string = createCustomerID('daniel', 10);
-// console.log(myID);
-// const fictionBooks = getBookTitlesByCategory(Category.Fiction);
-// fictionBooks.forEach((val, idx, arr) => console.log(++idx + ' - ' +val));
+// let myBook: Book = {
+//     id: 5,
+//     title: 'Pride and Prejudice',
+//     author: 'Jane Auston',
+//     available: true,
+//     category: Category.Fiction,
+//     pages: 250,
+//     markDamaged: (reason: string) => console.log('Damaged: '+reason)
+// }
+// printBook(myBook);
+// myBook.markDamaged('missing back cover');
+// let logDamage: DamageLogger;
+// logDamage = (damage: string) => console.log('Damage reported: '+damage);
+// logDamage('coffie stains');
+var favoriteLibrarian = new classes_1.UniversityLibrarian();
+favoriteLibrarian.name = 'Sharon';
+favoriteLibrarian.assistCustomer('Lynda');

@@ -68,4 +68,13 @@ Rest Parameters -> Collects a group of parameters into a single array
 
 function getBooksReadForCust(name: string, ...bookIDs: number[]) { }  
 let books = getBooksReadForCust('Leigh', 2, 5);     
-let books = getBooksReadForCust('Daniel', 2, 5, 12, 42);               
+let books = getBooksReadForCust('Daniel', 2, 5, 12, 42);
+
+------------------------------------------------------------
+
+Interfaces : Interface is a structure that defines the contract in your application.
+             It defines the syntax for classes to follow. Classes that are derived 
+             from an interface must follow the structure provided by their interface.
+
+ Duck Typing -> Duck-Typing is a method/rule used to check the type compatibility for
+                more complex variable types.        
