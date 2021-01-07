@@ -44,3 +44,15 @@ Basic Types :
 
 Type Inference :  type inference is used to provide type information when there is no 
                   explicit type annotation
+
+------------------------------------------------
+
+Array : Array types can be written in one of two ways
+
+let list: number[] = [1, 2, 3];
+let list: Array<number> = [1, 2, 3];
+
+Tuple : Tuple types allow you to express an array with a fixed number of elements whose
+        types are known, but need not be the same
+        
+let x: [string, number];
