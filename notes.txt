@@ -1,0 +1,46 @@
+Superset of JavaScript -> build up on JavaScript
+
+Types and safety
+
+Types enable faster development
+
+Compiles to plain JavaScript 
+
+Cross-platform
+
+Open-source
+
+-----------------------------------------------
+
+npm install -g typescript
+
+tsc -version
+
+-----------------------------------------------
+
+Variables :
+
+var -> Globally available in the function in which it is declared
+       "Hoisted" to the top of hte function
+       Variable name may be declared a second time in the function 
+
+let and const -> Only available in the block in which it is declared
+                 Not "hoisted" to the top of the block
+                 Variable name may only be declared once per block
+
+-----------------------------------------------
+
+Basic Types :
+
+1.Boolean
+2.Number
+3.String
+4.Array
+5.Enum
+6.Any
+7.Void
+
+------------------------------------------------
+
+Type Inference :  type inference is used to provide type information when there is no 
+                  explicit type annotation
