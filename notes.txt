@@ -54,5 +54,18 @@ let list: Array<number> = [1, 2, 3];
 
 Tuple : Tuple types allow you to express an array with a fixed number of elements whose
         types are known, but need not be the same
-        
+
 let x: [string, number];
+
+-----------------------------------------------------
+
+Function - Optional and Default Parameters
+
+Optional parameters denoted with "?" after parameter name
+
+Rest Parameters -> Collects a group of parameters into a single array
+                   Denoted with an ellipsis prefix on last parameter
+
+function getBooksReadForCust(name: string, ...bookIDs: number[]) { }  
+let books = getBooksReadForCust('Leigh', 2, 5);     
+let books = getBooksReadForCust('Daniel', 2, 5, 12, 42);               
