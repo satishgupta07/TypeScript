@@ -77,4 +77,10 @@ Interfaces : Interface is a structure that defines the contract in your applicat
              from an interface must follow the structure provided by their interface.
 
  Duck Typing -> Duck-Typing is a method/rule used to check the type compatibility for
-                more complex variable types.        
+                more complex variable types.   
+
+--------------------------------------------------------------------
+
+Class : Template for creating objects
+        Provides state storage and behavior
+        Encapsulate reusable functionality     

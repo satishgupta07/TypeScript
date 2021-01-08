@@ -103,20 +103,7 @@ function printBook(book) {
     console.log(book.title + ' by ' + book.author);
 }
 // **********************************************************
-// let myBook: Book = {
-//     id: 5,
-//     title: 'Pride and Prejudice',
-//     author: 'Jane Auston',
-//     available: true,
-//     category: Category.Fiction,
-//     pages: 250,
-//     markDamaged: (reason: string) => console.log('Damaged: '+reason)
-// }
-// printBook(myBook);
-// myBook.markDamaged('missing back cover');
-// let logDamage: DamageLogger;
-// logDamage = (damage: string) => console.log('Damage reported: '+damage);
-// logDamage('coffie stains');
-var favoriteLibrarian = new classes_1.UniversityLibrarian();
-favoriteLibrarian.name = 'Sharon';
-favoriteLibrarian.assistCustomer('Lynda');
+var ref = new classes_1.ReferenceItem('New Facts and Figure', 2010);
+ref.printItem();
+ref.publisher = 'Random Data Publishing';
+console.log(ref.publisher);
