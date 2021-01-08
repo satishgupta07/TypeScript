@@ -1,6 +1,8 @@
 import {Category} from './enum';
-import {Book, DamageLogger, Author, Librarian } from './interfaces';
-import {UniversityLibrarian, ReferenceItem,  Encyclopedia} from './classes';
+import {Book, Logger, Author, Librarian } from './interfaces';
+import {UniversityLibrarian, ReferenceItem} from './classes';
+import {calculateLateFees as CalcFee, maxBooksAllowed} from './lib/utilityFunctions';
+import refBook from './encyclopedia';
 
 function getAllBooks(): Book[] {
 
