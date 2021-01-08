@@ -1,8 +1,9 @@
 import {Category} from './enum';
-import {Book, Logger, Author, Librarian } from './interfaces';
+import {Book, Logger, Author, Librarian, Magzine } from './interfaces';
 import {UniversityLibrarian, ReferenceItem} from './classes';
-import {calculateLateFees as CalcFee, maxBooksAllowed} from './lib/utilityFunctions';
+import {calculateLateFees as CalcFee, maxBooksAllowed, Purge} from './lib/utilityFunctions';
 import refBook from './encyclopedia';
+import Shelf from './shelf';
 
 function getAllBooks(): Book[] {
 
@@ -124,25 +125,40 @@ function printBook(book: Book): void {
 
 // **********************************************************
 
-// let ref: ReferenceItem = new ReferenceItem('New Facts and Figure', 2010)
-// ref.printItem();
-// ref.publisher = 'Random Data Publishing';
-// console.log(ref.publisher);
+let inventory: Array<Book> = [
+    {id:10, title: 'The C Programming Language', author: 'K & R', available: true, category: Category.Software},
+    {id:11, title: 'Code Complete', author: 'Steve McConnell', available: true, category: Category.Software},
+    {id:12, title: '8-Bit Graphics with Cobol', author: 'A. B.', available: true, category: Category.Software},
+    {id:13, title: 'Cool autoexec.bat Scripts!', author: 'C. D.', available: true, category: Category.Software},
+];
 
-// let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
-// refBook.printCitation();
+// let purgedBooks: Array<Book> = Purge<Book>(inventory);
+// purgedBooks.forEach(book => console.log(book.title));
 
-let Newspaper = class extends ReferenceItem {
-    printCitation(): void {
-        console.log(`Newspaper: ${this.title}`);
-    }
-}
+// let purgedNums: Array<number> = Purge<number>([1, 2, 3, 4]);
+// console.log(purgedNums);
 
-let myPaper = new Newspaper('The Gazette', 2016);
-myPaper.printCitation();
+let bookShelf: Shelf<Book> = new Shelf<Book>();
+inventory.forEach(book => bookShelf.add(book));
 
-class Novel extends class {title: string} {
-    mainCharacter: string;
-} 
+let firstBook: Book = bookShelf.getFirst();
+
+let magzines: Array<Magzine> = [
+    { title: 'Programming Language Monthly', publisher: 'Code Mags'},
+    { title: 'Literary Fiction Quarterly', publisher: 'College Press'},
+    { title: 'Five Points', publisher: 'GSU'}
+];
+
+let magzineShelf: Shelf<Magzine> = new Shelf<Magzine>();
+
+magzines.forEach(mag => magzineShelf.add(mag));
+
+let firstMagzine: Magzine = magzineShelf.getFirst();
+
+magzineShelf.printTitles();
+
+let softwareBook = bookShelf.find('Code Complete');
+console.log(`${softwareBook.title} (${softwareBook.author})`)
+
 
 

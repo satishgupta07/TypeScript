@@ -90,3 +90,10 @@ Abstract Classes : Created with the 'abstract' keyword
                    Base classes that may not be instantiated
                    May contain implementation details
                    Abstract methods are not implemented  
+
+
+-----------------------------------------------------------------
+
+Generics : Code that works with multiple types
+           Accept "type parameters" for each instance or invocation
+           Apply to functions, interfaces, and classes                
