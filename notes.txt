@@ -83,4 +83,10 @@ Interfaces : Interface is a structure that defines the contract in your applicat
 
 Class : Template for creating objects
         Provides state storage and behavior
-        Encapsulate reusable functionality     
+        Encapsulate reusable functionality
+
+
+Abstract Classes : Created with the 'abstract' keyword
+                   Base classes that may not be instantiated
+                   May contain implementation details
+                   Abstract methods are not implemented  

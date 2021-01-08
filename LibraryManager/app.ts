@@ -127,6 +127,6 @@ function printBook(book: Book): void {
 // ref.publisher = 'Random Data Publishing';
 // console.log(ref.publisher);
 
-let refBook = new Encyclopedia('WorldPedia', 1900, 10);
-refBook.printItem();
+let refBook: ReferenceItem = new Encyclopedia('WorldPedia', 1900, 10);
+refBook.printCitation();
 
